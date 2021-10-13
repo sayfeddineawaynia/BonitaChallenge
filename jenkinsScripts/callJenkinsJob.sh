@@ -15,6 +15,8 @@ export userPassword=$2
 export groupeName=$3
 export moduleName=$4
 export projectVersion=$4
+export JENKINS_URL=$5
+export JOB_NAME=$6
 
 # Call Jenkins Job
 
