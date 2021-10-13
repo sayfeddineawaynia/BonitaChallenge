@@ -17,3 +17,5 @@ getAllRunningJobs.sh : Script to list all running Jenkins Jobs
 stopRunningJobs.sh : Script to stop all Jenking job running more than 1 hour
 
 callJenkinsJob.sh : Script to build ajenkins job via post request on a given hour configured in crontab
+
+vars directory contains jenkins job script groovy loaded via shared library in jenkins
