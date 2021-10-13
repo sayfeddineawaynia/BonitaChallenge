@@ -1,4 +1,4 @@
-# bonitaDeployment
+# Bonita Challenge
 
 # Section 1 : deploy Bonita Image on K8s
 
