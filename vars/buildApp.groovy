@@ -129,8 +129,8 @@ def call(){
 			#!/bin/bash +x
                     	jarPath=\$(find ./target -type f -name "*.jar")
                     	jarName=\$(basename \$jarPath)
-                    	mv ./target/\$jarName ./target/my-app.jar
-                    	cp ./target/my-app.jar ./my-app.jar
+                    	cp ./target/\$jarName ./target/my-app.jar
+                    	mv ./target/my-app.jar ./my-app.jar
 			
 			cat <<EOF > Dockerfile
 			FROM openjdk:18-jdk-alpine3.13
