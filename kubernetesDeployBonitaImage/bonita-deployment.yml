@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bonita-deployment
+  labels:
+    app: bonita
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bonita
+  template:
+    metadata:
+      labels:
+        app: bonita
+    spec:
+      containers:
+      - name: bonita
+        image: bonita:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TENANT_LOGIN
+          valueFrom:
+            secretKeyRef:
+              name: bonita-secret-h2-credentials
+              key: bonita-username
+        - name: TENANT_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: bonita-secret-h2-credentials
+              key: bonita-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bonita-service
+spec:
+  selector:
+    app: bonita
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30000
