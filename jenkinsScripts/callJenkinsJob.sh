@@ -14,10 +14,10 @@ export userName=$1
 export userPassword=$2
 export groupeName=$3
 export moduleName=$4
-export projectVersion=$4
-export JENKINS_URL=$5
-export JOB_NAME=$6
+export projectVersion=$5
+export JENKINS_URL=$6
+export JOB_NAME=$7
 
 # Call Jenkins Job
 
-curl -u userName:userPassword -X POST "$JENKINS_URL/job/$JOB_NAME/buildWithParameters?GROUPE_NAME=$groupeName&MODULE_NAME=$moduleName&VERSION=$projectVersion"
+curl -u $userName:$userPassword -X POST "$JENKINS_URL/job/$JOB_NAME/buildWithParameters?GROUPE_NAME=$groupeName&MODULE_NAME=$moduleName&VERSION=$projectVersion"
